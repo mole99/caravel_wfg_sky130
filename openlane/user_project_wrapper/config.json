@@ -1,14 +1,39 @@
 {
     "DESIGN_NAME": "user_project_wrapper",
     "VERILOG_FILES": ["dir::../../verilog/rtl/defines.v", "dir::../../verilog/rtl/user_project_wrapper.v"],
-    "CLOCK_PERIOD": 10,
+    "CLOCK_PERIOD": 20,
     "CLOCK_PORT": "user_clock2",
-    "CLOCK_NET": "mprj.clk",
-    "FP_PDN_MACRO_HOOKS": "mprj vccd1 vssd1 vccd1 vssd1",
+    "FP_PDN_MACRO_HOOKS": [
+        "wfg_top_inst                            vccd1 vssd1 vccd1 vssd1",
+        "merge_memory_inst                       vccd1 vssd1 vccd1 vssd1",
+        "wb_mux_inst                             vccd1 vssd1 vccd1 vssd1",
+        "wb_memory_inst                          vccd1 vssd1 vccd1 vssd1",
+        "sky130_sram_2kbyte_1rw1r_32x512_8_inst0 vccd1 vssd1 vccd1 vssd1",
+        "sky130_sram_2kbyte_1rw1r_32x512_8_inst1 vccd1 vssd1 vccd1 vssd1"
+    ],
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
-    "VERILOG_FILES_BLACKBOX": ["dir::../../verilog/rtl/defines.v", "dir::../../verilog/rtl/user_proj_example.v"],
-    "EXTRA_LEFS": "dir::../../lef/user_proj_example.lef",
-    "EXTRA_GDS_FILES": "dir::../../gds/user_proj_example.gds",
+    "VERILOG_FILES_BLACKBOX": [
+        "dir::../../verilog/rtl/defines.v",
+        "dir::../../verilog/gl/wfg_top.v",
+        "dir::../../verilog/gl/merge_memory.v",
+        "dir::../../verilog/gl/wb_mux.v",
+        "dir::../../verilog/gl/wb_memory.v",
+        "dir::../../../dependencies/pdks/sky130B/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v"
+    ],
+    "EXTRA_LEFS": [
+        "dir::../../lef/wfg_top.lef",
+        "dir::../../lef/merge_memory.lef",
+        "dir::../../lef/wb_mux.lef",
+        "dir::../../lef/wb_memory.lef",
+        "dir::../../../dependencies/pdks/sky130B/libs.ref/sky130_sram_macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef"
+    ],
+    "EXTRA_GDS_FILES": [
+        "dir::../../gds/wfg_top.gds",
+        "dir::../../gds/merge_memory.gds",
+        "dir::../../gds/wb_mux.gds",
+        "dir::../../gds/wb_memory.gds",
+        "dir::../../../dependencies/pdks/sky130B/libs.ref/sky130_sram_macros/gds/sky130_sram_2kbyte_1rw1r_32x512_8.gds"
+    ],
     "FP_PDN_CHECK_NODES": 0,
     "SYNTH_ELABORATE_ONLY": 1,
     "PL_RANDOM_GLB_PLACEMENT": 1,
@@ -51,23 +76,7 @@
     "pdk::sky130*": {
         "RT_MAX_LAYER": "met4",
         "DIE_AREA": "0 0 2920 3520",
-        "FP_DEF_TEMPLATE": "dir::fixed_dont_change/user_project_wrapper.def",
-        "scl::sky130_fd_sc_hd": {
-            "CLOCK_PERIOD": 10
-        },
-        "scl::sky130_fd_sc_hdll": {
-            "CLOCK_PERIOD": 10
-        },
-        "scl::sky130_fd_sc_hs": {
-            "CLOCK_PERIOD": 8
-        },
-        "scl::sky130_fd_sc_ls": {
-            "CLOCK_PERIOD": 10,
-            "SYNTH_MAX_FANOUT": 5
-        },
-        "scl::sky130_fd_sc_ms": {
-            "CLOCK_PERIOD": 10
-        }
+        "FP_DEF_TEMPLATE": "dir::fixed_dont_change/user_project_wrapper.def"
      },
     "pdk::gf180mcuC": {
         "STD_CELL_LIBRARY": "gf180mcu_fd_sc_mcu7t5v0",
@@ -81,5 +90,9 @@
         "FP_PDN_CHECK_NODES": 0,
         "MAGIC_WRITE_FULL_LEF": 0,
         "FP_PDN_ENABLE_RAILS": 0
-   }
+   },
+    "MAGIC_DRC_USE_GDS": 0,
+    "RUN_MAGIC_DRC": 0,
+    "QUIT_ON_MAGIC_DRC": 0,
+    "RUN_KLAYOUT_XOR": 0
 }
