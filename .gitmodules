@@ -1,3 +1,0 @@
-[submodule "verilog/rtl/waveform-generator"]
-	path = verilog/rtl/waveform-generator
-	url = https://codeberg.org/mole99/waveform-generator
