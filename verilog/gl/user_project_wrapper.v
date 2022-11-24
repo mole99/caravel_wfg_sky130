@@ -532,7 +532,6 @@ module user_project_wrapper (user_clock2,
  wire io_wbs_stb_1;
  wire io_wbs_we_0;
  wire io_wbs_we_1;
- wire one_;
  wire \unused[0] ;
  wire \unused[10] ;
  wire \unused[11] ;
@@ -571,6 +570,8 @@ module user_project_wrapper (user_clock2,
  merge_memory merge_memory_inst (.csb(csb1),
     .csb_mem0(csb1_mem0),
     .csb_mem1(csb1_mem1),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
     .addr({\addr1[9] ,
     \addr1[8] ,
     \addr1[7] ,
@@ -700,6 +701,8 @@ module user_project_wrapper (user_clock2,
     .web0(web0_mem0),
     .clk0(wb_clk_i),
     .clk1(wb_clk_i),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
     .addr0({\addr0_mem0[8] ,
     \addr0_mem0[7] ,
     \addr0_mem0[6] ,
@@ -823,6 +826,8 @@ module user_project_wrapper (user_clock2,
     .web0(web0_mem1),
     .clk0(wb_clk_i),
     .clk1(wb_clk_i),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
     .addr0({\addr0_mem1[8] ,
     \addr0_mem1[7] ,
     \addr0_mem1[6] ,
@@ -949,6 +954,8 @@ module user_project_wrapper (user_clock2,
     .io_wbs_rst(wb_rst_i),
     .io_wbs_stb(io_wbs_stb_1),
     .io_wbs_we(io_wbs_we_1),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
     .web_mem0(web0_mem0),
     .web_mem1(web0_mem1),
     .addr_mem0({\addr0_mem0[8] ,
@@ -1217,6 +1224,8 @@ module user_project_wrapper (user_clock2,
     .io_wbs_we(wbs_we_i),
     .io_wbs_we_0(io_wbs_we_0),
     .io_wbs_we_1(io_wbs_we_1),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
     .io_wbs_adr({wbs_adr_i[31],
     wbs_adr_i[30],
     wbs_adr_i[29],
@@ -1571,6 +1580,17 @@ module user_project_wrapper (user_clock2,
     \dout1[2] ,
     \dout1[1] ,
     \dout1[0] }),
+    .io_oeb({io_oeb[18],
+    io_oeb[17],
+    io_oeb[16],
+    io_oeb[15],
+    io_oeb[14],
+    io_oeb[13],
+    io_oeb[12],
+    io_oeb[11],
+    io_oeb[10],
+    io_oeb[9],
+    io_oeb[8]}),
     .io_wbs_adr({\io_wbs_adr_0[31] ,
     \io_wbs_adr_0[30] ,
     \io_wbs_adr_0[29] ,
@@ -1699,20 +1719,4 @@ module user_project_wrapper (user_clock2,
     io_out[13],
     io_out[12],
     io_out[11]}));
- sky130_fd_sc_hd__conb_1 TIE_ONE_one_ (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1),
-    .HI(one_));
- assign io_oeb[10] = one_;
- assign io_oeb[11] = one_;
- assign io_oeb[12] = one_;
- assign io_oeb[13] = one_;
- assign io_oeb[14] = one_;
- assign io_oeb[15] = one_;
- assign io_oeb[16] = one_;
- assign io_oeb[17] = one_;
- assign io_oeb[18] = one_;
- assign io_oeb[8] = one_;
- assign io_oeb[9] = one_;
 endmodule
